@@ -21,13 +21,13 @@
     var c =Number(prompt("输入c") )
 
     var d =(a+b)/c
-    console.log(d)
+    console.log(d-d%1)
 
 </script>
-<script id="ch0103/04">
-  var input = prompt("请输入被除数和除数，用空格隔开：");
-  var [dividend, divisor] = input.split(' ').map(Number);
-  var quotient = Math.trunc(dividend / divisor);
-  var remainder = dividend % divisor;
-  console.log(quotient + " " + remainder);
+<script type="ok"  id="ch0103/04">
+  var a =Number(prompt("输入被除数"))
+  var b =Number(prompt("输入除数"))
+  var reminder =a%b
+  var result =Math.trunc(a/b)
+  console.log(result,reminder)
 </script>
