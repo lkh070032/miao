@@ -1,0 +1,33 @@
+<script type="ok" id="ch0103/01">
+    var a =Number(prompt("输入a") )
+    var b =Number(prompt("输入b") )
+   
+    var c = a + b
+    console.log(c)
+
+</script>
+<script type="ok" id="ch0103/02">
+     var a =Number(prompt("输入a") )
+     var b =Number(prompt("输入b") )
+     var c =Number(prompt("输入c") )
+     
+     var d =(a + b)*c
+     console.log(d)
+
+</script>
+<script type="ok" id="ch0103/03">
+    var a =Number(prompt("输入a") )
+    var b =Number(prompt("输入b") )
+    var c =Number(prompt("输入c") )
+
+    var d =(a+b)/c
+    console.log(d)
+
+</script>
+<script id="ch0103/04">
+  var input = prompt("请输入被除数和除数，用空格隔开：");
+  var [dividend, divisor] = input.split(' ').map(Number);
+  var quotient = Math.trunc(dividend / divisor);
+  var remainder = dividend % divisor;
+  console.log(quotient + " " + remainder);
+</script>
