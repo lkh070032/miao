@@ -31,3 +31,125 @@
   var result =Math.trunc(a/b)
   console.log(result,reminder)
 </script>
+<script type="ok" id="ch0103/05">
+  var a =Number(prompt("输入a"))
+  var b =Number(prompt("输入b"))
+  
+  var c =(a / b)
+  var rusult =c.toFixed(9)
+  console.log(rusult)
+</script>
+<script type="ok" id="ch0103/06">
+  var a =Number(prompt("输入a"))
+  var b =Number(prompt("输入b"))
+  var c =b / a*100
+  var result =c.toFixed(3)+"%"
+  console.log(result)
+</script>
+<script type="ok" id="ch0103/07">
+   var x =Number(prompt("输入x"))
+   var a =Number(prompt("输入a"))
+   var b =Number(prompt("输入b"))
+   var c =Number(prompt("输入c"))
+   var d =Number(prompt("输入d"))
+   
+   var l =(a*(x*x*x)+(b*(x*x))+(c*x)+d)
+   var result =l.toFixed(7)
+   console.log(result)
+</script>
+<script type="ok" id="ch0103/08">
+   var f =Number(prompt("输入f"))
+   var a =5*(f-32)/9
+   console.log(a.toFixed(5))
+</script>
+<script type="ok" id="ch0103/09">
+   var r =Number(prompt("输入r"))
+   var q =3.14159
+   var d =(2*r)
+   var z =2*q*r
+   var m =q*r*r
+
+   console.log(d.toFixed(4),z.toFixed(4),m.toFixed(4))
+
+</script>
+<script type="ok" id="ch0103/10">
+   var r1 =Number(prompt("输入r1"))
+   var r2 =Number(prompt("输入r2"))
+   var R =1/(1/r1+1/r2)
+   console.log(R.toFixed(2))
+
+</script>
+<script type="ok" id="ch0103/11">
+   var a =Number(prompt("输入a"))
+   var b =Number(prompt("输入b"))
+   var r =a%b
+   console.log(r.toFixed(4))
+</script>
+<script type="ok" id="ch0103/12">
+   var r =Number(prompt("输入r"))
+   var V =4/3*3.14*r*r*r
+   console.log(V.toFixed(2))
+</script>
+<script type="ok" id="ch0103/13">
+   var a =Number(prompt("输入a"))
+   var ge=a%10
+   var shi=(a-ge)/10%10
+   var bai=(a-ge-shi*100)/100
+   console.log(""+ge+shi+bai)
+</script>
+<script type="ok" id="ch0103/14">
+  var h =Number(prompt("输入h"))
+  var r =Number(prompt("输入r"))
+  var t =3.14159*r*r*h/1000
+  var result =20/t
+  console.log(Math.ceil(result))
+</script>
+<script type="ok" id="ch0103/15">
+  var n =Number(prompt("输入n"))
+  var x =Number(prompt("输入x"))
+  var y =Number(prompt("输入y"))
+  var c =Math.ceil(y/x)
+  var a =n-c
+  console.log(a)
+</script>
+<script type="ok" id="ch0103/16">
+  var xa =Number(prompt("输入"))
+  var ya =Number(prompt("输入"))
+  var xb =Number(prompt("输入"))
+  var yb =Number(prompt("输入"))
+  var rusult =Math.sqrt((xa-xb)**2+(ya-yb)**2)
+  console.log(rusult.toFixed(3))
+</script>
+<script type="ok" id="ch0103/17">
+  var x1 =Number(prompt("输入"))
+  var y1 =Number(prompt("输入"))
+  var x2 =Number(prompt("输入"))
+  var y2 =Number(prompt("输入"))
+  var x3 =Number(prompt("输入"))
+  var y3 =Number(prompt("输入"))
+  var a =Math.sqrt((x1-x2)**2+(y1-y2)**2)
+  var c =Math.sqrt((x2-x3)**2+(y2-y3)**2)
+  var b =Math.sqrt((x3-x1)**2+(y3-y1)**2)
+  var p =(a+b+c)/2
+  var S =Math.sqrt(p*(p-a)*(p-b)*(p-c))
+  console.log(S.toFixed(2)) 
+</script>
+<script type="ok" id="ch0103/18">
+  var a1 =Number(prompt("输入"))
+  var a2 =Number(prompt("输入"))
+  var n =Number(prompt("输入"))
+  var d =a2-a1
+  var an=a1+(n-1)*(a2-a1)
+  console.log(an)
+</script>
+<script type="ok" id="ch0103/19">
+   var a =Number(prompt("输入"))
+   var b =Number(prompt("输入"))
+   var rusult =a*b
+   console.log(rusult)
+</script>
+<script type="ok" id="ch0103/20">
+  var n =Number(prompt("输入"))
+  var result =2**n
+  console.log(result)
+</script>
