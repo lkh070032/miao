@@ -270,3 +270,95 @@
     console.log("All")
   }
 </script>
+<script type="ok" id="ch0104/13">
+  var x =Number(prompt("输入"))
+  if(0<=x<5){
+    var y=-x+2.5
+    console.log(y.toFixed(3))
+  }else if(5<=x<10){
+    var y=2-1.5(x-3)(x-3)
+    console.log(y.toFixed(3))
+  }else if(10<=x<20){
+    var y=x/2-1.5
+    console.log(y.toFixed(3))
+  }
+</script>
+<script type="ok" id="ch0104/14">
+  var a =Number(prompt("输入"))
+  var b =prompt("输入")
+  var c =8
+  var d =8+Math.ceil((a-1000)/500)*4
+  var c1=c+5
+  var d1=d+5
+  if(a<=1000 && b=="n"){console.log(c)}
+  if(a<=1000 && b=="y"){console.log(c1)}
+  if(a>1000 && b=="n"){console.log(d)}
+  if(a>1000 && b=="y"){console.log(d1)}
+</script>
+<script type="ok" id="ch0104/15">
+  var a =Number(prompt("输入"))
+  var b =Number(prompt("输入"))
+  var c =Number(prompt("输入"))
+  var result =Math.max(a,b,c)
+  console.log(result)
+</script>
+<script type="ok" id="ch0104/16">
+  var a =Number(prompt("输入"))
+  var b =Number(prompt("输入"))
+  var c =Number(prompt("输入"))
+  if(a+b>c && a+c>b && b+c>a){
+    console.log("yes")
+  }else{
+    console.log("no")
+  }
+</script>
+<script type="ok" id="ch0104/17">
+  var a =Number(prompt("输入"))
+  if(a%4==0 && a%100==0 && a%400 !==0){
+    console.log("Y")
+  }else{
+    console.log("n")
+  }
+</script>
+<script type="ok" id="ch0104/18">
+  var x =Number(prompt("输入"))
+  var y =Number(prompt("输入"))
+  if(x<=1 && x>=-1 && y>=-1 && y<=1){
+    console.log("yes")
+  }else{
+    console.log("no")
+  }
+</script>
+<script type="ok" id="ch0104/19">
+  var a =Number(prompt("输入"))
+  var b =Number(prompt("输入"))
+  var c =prompt("")
+  if(c=="+"){
+    console.log(a+b)
+  }else if(c=="-"){
+    console.log(a-b)
+  }else if(c=="*"){
+    console.log(a*b)
+  }else if(c=="/"){
+    if(b!==0){
+    console.log(a/b)
+    }else{
+      console.log("Divided by zero!")
+    }
+    }else{
+      console.log("Invalid operator!")
+  }
+</script>
+<script type="no" id="ch0104/20">
+   var a =Number(prompt("输入"))
+   var b =Number(prompt("输入"))
+   var c =Number(prompt("输入"))
+</script>
+<script type="ok" id="ch0104/21">
+  var n =Number(prompt("输入n"))
+  var x =Number(prompt("输入x"))
+  var y =Number(prompt("输入y"))
+  var c =Math.ceil(y/x)
+  var a =n-c
+  console.log(a)
+</script>
