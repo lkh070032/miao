@@ -1146,3 +1146,132 @@ c+=1不会转换c的类型
   console.log(sum)
 
 </script>
+***计算水仙花数
+<script type="ok" id="narcissistic">
+  //计算数字长度
+  function cdwidth(n){
+    var width = 0
+    do{
+      var ge = n%10
+      n =(n-ge)/10
+      width++  
+    }while(n>0)
+    return width
+  }
+ function isNarcissistic(n){
+   var width =cdwidth(n)
+   var sum = 0
+   var m =n
+   while(n>0){
+    var ge = n%10
+    sum +=ge **width
+    n=(n-ge)/10
+   }
+   if(sum === m){
+    return true
+   }else{
+    return false
+   }
+ }
+ for (var i = 0; i<10000;i++){
+  if(isNarcissistic(i)){
+    console.log(i)
+  }
+ }
+</script>
+<script type="ok" id="narcissistics">
+  function cdwidth(n){
+    var width = 0
+    do{
+      var ge = n%10
+      n =(n-ge)/10
+      width++  
+    }while(n>0)
+    return width
+  }
+ function isNarcissistic(n){
+   var width =cdwidth(n)
+   var sum = 0
+   var m =n
+   while(n>0){
+    var ge = n%10
+    sum +=ge **width
+    n=(n-ge)/10
+   }
+   if(sum === m){
+    return true
+   }else{
+    return false
+   }
+ }
+ for (var i = 0; i<10000;i++){
+  if(isNarcissistic(i)){
+    console.log(i)
+  }
+ }
+</script>
+// palindrom: 输入一个数，判断它数是否是回文数，如1223221
+<script type="" id="">
+
+</script>
+<script type="ok" type="" id="prime">
+var isPrime = function (n){
+  if(n<0){
+    return false
+  }
+  for(var i =2; i<=n;i++){
+    if(n%i==0){
+       return false
+    }
+   return true
+  }
+}
+</script>
+<script type="ok" id="primes">
+  var isPrime = function (n){
+  if(n<0){
+    return false
+  }
+  for(var i =2; i<=n;i++){
+    if(n%i==0){
+       return false
+    }
+   return true
+  }
+}
+for(var i=1; i<100;i++){
+  if(isPrime(i)){
+    console.log(i)
+  }
+}
+</script>
+<script type="ok" id="complete-number">
+  function isFactor(x,n){
+  return n%x == 0
+  }
+function iscompletenumber(n){
+  var sum =1
+  for (var i =2;i<n;i++){
+    if(isFactor(i,n))
+    sum+=i
+  }
+  return sum==n
+}
+</script>
+<script type="ok" id="complete-numbers">
+    function isFactor(x,n){
+  return n%x == 0
+  }
+function iscompletenumber(n){
+  var sum =1
+  for (var i =2;i<n;i++){
+    if(isFactor(i,n))
+    sum+=i
+  }
+  return sum==n
+}
+for(i=1;i<10000;i++){
+    if(iscompletenumber(i))
+    console.log(i)
+   }
+</script>
