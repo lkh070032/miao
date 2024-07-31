@@ -103,7 +103,7 @@
     this.next=null
   }
   // 返回链表第idx个结点的值
-  LinkedList.prototype.get = function(idx) {
+  LinkedList.prototype.at = function(idx) {
     var p=this._head
     while(idx > 0 && p){
       p=p.next
@@ -127,7 +127,7 @@
     }
   }
   // 在链表末尾新增一个结点，值为val
-  LinkedList.prototype.push = function(val) {
+  LinkedList.prototype.append = function(val) {
     var node  ={
       val:val,
       next:null,
@@ -164,7 +164,7 @@
     return result
   }
   // 在链表头部新增一个结点，值为val
-  LinkedList.prototype.unshift = function(val) {
+  LinkedList.prototype.prepend = function(val) {
     var node = {
       val:val,
       next:this._head
