@@ -409,6 +409,6 @@
   // 以及queue.size获取队列的长度
   Object.defineProperty(Queue.prototype,'size',{
     get:function(){
-      return this.length
+      return this._length
     }
   })
