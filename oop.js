@@ -192,12 +192,15 @@
     }
     return result
   }
+  LinkedList.prototype.toString = function() {
+  return this.toArray().join('->')
+ }
 
 
 
   // 表示一个集合（集合中元素没有序，但不能重复）
   // 构造函数可选的可以传入集合中的初始值，但会被去重后存放
-  function MySet(initalValues) {
+  function MySet(initalValues = []) {
     this._elements = []
     for(var val of initalValues){
       this.add(val)
@@ -213,7 +216,7 @@
   // 从集合中删除item元素
   MySet.prototype.delete = function(value) {
     var idx= this._elements.indexOf(value)
-    if(idx>=0){
+    if(idx >= 0){
       this._elements.splice(idx,1)
     }
     return this
@@ -238,7 +241,7 @@
   }
   // 遍历集合中的元素（顺序无所谓）
   MySet.prototype.forEach = function(func) {
-    for (let value of this.items) {
+    for (let value of this._elements) {
     func(value)
   }
   }
@@ -261,7 +264,7 @@
 
   // 表示一个映射
   // 这个映射中，可以把任何值映射到任何值，映射的key不限于字符串
-  function MyMap() {
+  function MyMap(initPairs = []) {
     this._pairs = []
     for(var pair of initPairs){
       var key = pair[0]
@@ -332,11 +335,11 @@
     this._elements=[]
   }
   // 向栈中增加元素
-  Stack.prototype.in = function(val) {
+  Stack.prototype.push = function(val) {
     this._elements.push(val)
   }
   // 从栈中取出元素并删除栈顶元素
-  Stack.prototype.out = function() {
+  Stack.prototype.pop = function() {
     return this._elements.pop()
   }
   // 查看但不删除栈顶元素
