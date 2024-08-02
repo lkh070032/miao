@@ -207,7 +207,7 @@ class Complex {
       return this
     }
     get size() {
-      return this._length
+      return this._elements.length
     }
     clear(){
       this._elements=[]
