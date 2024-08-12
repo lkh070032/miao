@@ -1,4 +1,3 @@
-
 var lkh070032 = function (){
     function chunk(array, size) {
     var result = [];
@@ -97,20 +96,21 @@ var lkh070032 = function (){
   }
     return result;
    }
-}
-return {
-    chunk: chunk,
-    compact: compact,
-    difference: difference,
-    fill: fill,
-    drop: drop,
+   return {
+    chunk:chunk,
+    compact:compact,
+    difference:difference,
+    fill:fill,
+    drop:drop,
     concat:concat,
     flatten:flatten,
     flattenDeep:flattenDeep,
     flattenDepth:flattenDepth,
     findIndex:findIndex,
     findLastIndex:findLastIndex,
+}
 }()
+
 
 
 
