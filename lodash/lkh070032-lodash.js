@@ -1,5 +1,5 @@
 
-var aaaaa = function (){
+var lkh070032 = function (){
     function chunk(array, size) {
     var result = [];
     for (var i = 0; i < array.length; i++) {
