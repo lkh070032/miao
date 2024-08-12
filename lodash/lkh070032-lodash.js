@@ -104,7 +104,12 @@ return {
     difference: difference,
     fill: fill,
     drop: drop,
-
+    concat:concat,
+    flatten:flatten,
+    flattenDeep:flattenDeep,
+    flattenDepth:flattenDepth,
+    findIndex:findIndex,
+    findLastIndex:findLastIndex,
 }()
 
 
