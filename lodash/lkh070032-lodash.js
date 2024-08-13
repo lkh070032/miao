@@ -111,9 +111,7 @@ var lkh070032 = function (){
     return Object.keys(obj).map(key => [key, obj[key]]);
 }
    function head(array){
-    var result = []
-    result.push(array[0])
-    return result
+    return array[0]
    }
    function indexOf(array, value, fromIndex=0){
     if(fromIndex !==0){
@@ -174,7 +172,7 @@ var lkh070032 = function (){
      
    }
    function some(){
-    
+
    }
    return {
     chunk:chunk,
