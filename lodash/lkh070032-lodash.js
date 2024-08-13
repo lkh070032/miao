@@ -52,9 +52,14 @@ var lkh070032 = function (){
         }
     return array
     }
-    function findIndex(){
-
+    function findIndex(array, callback) {
+    for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i, array)) {
+      return i;
     }
+  }
+  return -1;
+}
     function findLastIndex(){
 
     }
@@ -96,6 +101,81 @@ var lkh070032 = function (){
   }
     return result;
    }
+   function fromPairs(pairs) {
+   return pairs.reduce((obj, [key, value]) => {
+    obj[key] = value;
+    return obj;
+  }, {});
+}
+   function toPairs(obj) {
+    return Object.keys(obj).map(key => [key, obj[key]]);
+}
+   function head(array){
+    var result = []
+    result.push(array[0])
+    return result
+   }
+   function indexOf(array, value, fromIndex=0){
+    if(fromIndex !==0){
+        for(var i =fromIndex;i<array.length;i++){
+            if(array[i]===value)
+            return i
+        }
+    }
+    if(fromIndex == 0){
+    for(var i =0;i<array.length;i++){
+        if(array[i] == value){
+            return i
+        }
+    }
+  }
+   }
+   function lastIndexOf(array, value, fromIndex=array.length-1){
+    for(var i = fromIndex;i<array.length;i--){
+        if(array[i] === value){
+            return i
+        }
+    }
+   }
+   function initial(array){
+    var result=[]
+    for(var i =0;i<array.length-1;i++){
+        result.push(array[i])
+    }
+    return result
+   }
+   function join(array, separator){
+    return result = array.join(separator)
+   }
+   function last(array){
+    return array.pop()
+   }
+   function pull(array, ...values) {
+    // 创建一个新数组用于存放结果
+    let result = [];
+    // 遍历原数组
+    for (let i = 0; i < array.length; i++) {
+        // 检查当前元素是否不在要移除的值中
+        if (!values.includes(array[i])) {
+            // 如果不在，则添加到结果数组中
+            result.push(array[i]);
+        }
+    }
+    return result;
+}
+   function reverse(array){
+     var result=[]
+     for(var i =array.length-1;i>=0 ;i--){
+        result.push(array[i])
+     }
+     return result
+   }
+   function every(){
+     
+   }
+   function some(){
+    
+   }
    return {
     chunk:chunk,
     compact:compact,
@@ -108,6 +188,17 @@ var lkh070032 = function (){
     flattenDepth:flattenDepth,
     findIndex:findIndex,
     findLastIndex:findLastIndex,
+    fromPairs:fromPairs,
+    toPairs:toPairs,
+    head:head,
+    indexOf:indexOf,
+    lastIndexOf:lastIndexOf,
+    initial:initial,
+    join:join,
+    last:last,
+    pull:pull,
+    reverse:reverse,
+    every:every,
 }
 }()
 
