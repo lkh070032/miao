@@ -23,32 +23,31 @@ var lkh070032 = function (){
     }
     return result;
 }
-    function difference(array, values) {
-    var result = [];
-    for (var i = 0; i < array.length; i++) {
-        var isPresent = false; 
-        for (var j = 0; j < values.length; j++) {
-            if (array[i] === values[j]) {
-                isPresent = true;
-                break;
-            }
-        }
-        if (!isPresent) {
-            result.push(array[i]);
-        }
+function difference(array, ...values) {
+    var ans = []
+    var set = new Set()
+    for (var i = 0; i < values.length; i++) {
+      var value = values[i]
+      for (var val of value) {
+        set.add(val)
+      }
     }
-
-    return result; 
-}
+    for (var i = 0; i < array.length; i++) {
+      if (!set.has(array[i])) {
+        ans.push(array[i])
+      }
+    }
+    return ans
+  }
     function fill(array, value, start, end) {
     for (var i = start || 0; i < (end || array.length); i++) {
         array[i] = value;
     }
     return array;
 }
-    function drop(array,count){
-        for(var i =0;i<count;i++){
-            array.shift()
+    function drop(array,n =1){
+        for(var i =0;i<n;i++){
+            if(array) array.shift()
         }
     return array
     }
@@ -174,6 +173,19 @@ var lkh070032 = function (){
    function some(){
 
    }
+   function countBy(){
+
+   }
+   function groupBy(){
+
+   }
+   function keyBy(){
+
+   }
+   function forEach(){
+
+   }
+
    return {
     chunk:chunk,
     compact:compact,
@@ -197,6 +209,7 @@ var lkh070032 = function (){
     pull:pull,
     reverse:reverse,
     every:every,
+    some:some,
 }
 }()
 
