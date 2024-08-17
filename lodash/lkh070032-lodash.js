@@ -283,6 +283,40 @@ var lkh070032 = function (){
         var padding = Chars.repeat(repeatCount).slice(0, neededPadding);
         return string + padding;
     }  
+        function pad(string,n,chars){
+         if(chars === undefined || chars === null){
+            chars = ' '
+         }
+         var neededPadding = n-string.length
+         if(neededPadding <= 0){
+            return string
+         }
+         var half = Math.floor(neededPadding/2)
+         var leftpadding = half
+         var rightpadding = half + (neededPadding % 2);
+         var left = chars.repeat(leftpadding)
+         var right = chars.repeat(rightpadding)
+         return left+string+right
+    }
+        function keys (obj){
+        var result = [];
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                result.push(key);
+            }
+        }
+        return result;
+        }
+        function values (obj){
+        var result = [];
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                result.push(obj[key]);
+            }
+        }
+        return result;
+        }
+        
        return {
         chunk:chunk,
         compact:compact,
@@ -309,6 +343,9 @@ var lkh070032 = function (){
         repeat:repeat,
         padStart:padStart,
         padEnd:padEnd,
+        pad:pad,
+        keys:keys,
+        values:values,
     }
     }()
 
