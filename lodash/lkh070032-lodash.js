@@ -416,6 +416,19 @@ var lkh070032 = function (){
         }
         return max
        }
+       function min(array){
+        if(array.length === 0 || !Array.isArray(array)){
+            return undefined
+        }
+        var min = array[0]
+        for(var i = 0;i<array.length;i++){
+        var next = array[i]
+        if(next<min){
+            min = next
+        }
+        }
+        return min
+       }
        return {
         chunk:chunk,
         compact:compact,
@@ -452,5 +465,6 @@ var lkh070032 = function (){
         cloneDeep:cloneDeep,
         trim:trim,
         max:max,
+        min:min,
     }
     }()
