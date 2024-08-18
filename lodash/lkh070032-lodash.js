@@ -403,6 +403,19 @@ var lkh070032 = function (){
         }
         return string.slice(i,j+1)
        }
+       function max(array){
+        if(array.length === 0 || !Array.isArray(array)){
+            return undefined
+        }
+        var max = array[0]
+        for(var i = 0;i<array.length;i++){
+        var next = array[i]
+        if(next>max){
+            max = next
+        }
+        }
+        return max
+       }
        return {
         chunk:chunk,
         compact:compact,
@@ -438,5 +451,6 @@ var lkh070032 = function (){
         floor:floor,
         cloneDeep:cloneDeep,
         trim:trim,
+        max:max,
     }
     }()
