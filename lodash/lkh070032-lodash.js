@@ -82,11 +82,11 @@ var lkh070032 = function (){
                 }
                 return -1
             } else if (Array.isArray(predicate)) {
-                predicate = this.matchesProperty(predicate[0],predicate[1])
+                predicate = matchesProperty(predicate[0],predicate[1])
             } else if (typeof predicate == "object") {
-                predicate = this.matches(predicate)
+                predicate = matches(predicate)
             } else if (typeof predicate == "string") {
-                predicate = this.property(predicate)
+                predicate = property(predicate)
             }
             for (var i = fromIndex; i < array.length; i++) {
                 if (predicate(array[i])) {
@@ -95,8 +95,27 @@ var lkh070032 = function (){
             }
             return -1
         }
-        function findLastIndex(){
-    
+        function findLastIndex(array,predicate,fromIndex = array.length-1){
+            if (typeof predicate == 'function') {
+                for (var i = fromIndex; i >=0; i--) {
+                    if (predicate(array[i])) {
+                        return i
+                    }
+                }
+                return -1
+            } else if (Array.isArray(predicate)) {
+                predicate = matchesProperty(predicate[0],predicate[1])
+            } else if (typeof predicate == "object") {
+                predicate = matches(predicate)
+            } else if (typeof predicate == "string") {
+                predicate = property(predicate)
+            }
+            for (var i = fromIndex; i>=0; i--) {
+                if (predicate(array[i])) {
+                    return i
+                }
+            }
+            return -1
         }
         function flatten(array) {
         var result = [];
@@ -362,7 +381,27 @@ var lkh070032 = function (){
         }    
        }
        function trim(string,chars){
-        
+        if(string === ''){
+            return string
+        }
+        if(typeof chars !== 'string'){
+            chars =' '
+            chars.split('')
+        }
+        var i,j
+        for(var i = 0;i<string.length;i++){
+            var s = string[i]
+            if(chars.indexOf(s)===-1){
+                break
+            }
+        }
+        for(var j =string.length-1;j>=0;j--){
+            var s = string[j]
+            if(chars.indexOf(s)===-1){
+                break
+            }
+        }
+        return string.slice(i,j+1)
        }
        return {
         chunk:chunk,
@@ -398,5 +437,6 @@ var lkh070032 = function (){
         ceil:ceil,
         floor:floor,
         cloneDeep:cloneDeep,
+        trim:trim,
     }
     }()
