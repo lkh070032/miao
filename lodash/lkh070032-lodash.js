@@ -316,7 +316,54 @@ var lkh070032 = function (){
         }
         return result;
         }
+        function random(min, max, floating = false) {
+        if(!max){
+            max=0
+        }
+        if (min > max) {
+        // 交换 min 和 max 如果 min 大于 max
+        let temp = min;
+        min = max;
+        max = temp;
+      }
+      if (floating) {
+        // 生成浮点数
+        return Math.random() * (max - min) + min;
+      } else {
+        // 生成整数
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+    }
+    function round(number, precision = 0) {
+      var result = Math.pow(10, precision);
+      return Math.round(number * result) / result;
+    }
+       function ceil(number,precision = 0){
+        var result = Math.pow(10,precision)
+        return Math.ceil(number*result)/result
+       }
+       function floor(number,precision = 0){
+        var result = Math.pow(10,precision)
+        return Math.floor(number*result)/result
+       }
+       function cloneDeep(value){
+        if(value === null || typeof value !== 'object'){
+            return value
+        }
+        if(Array.isArray(value)){
+            var result = []
+            for(var i = 0 ;i <value.length;i++){
+                result.push(value[i])
+            }
+            if(result === value){
+              return true
+            }
+            return false
+        }    
+       }
+       function trim(string,chars){
         
+       }
        return {
         chunk:chunk,
         compact:compact,
@@ -346,14 +393,10 @@ var lkh070032 = function (){
         pad:pad,
         keys:keys,
         values:values,
+        random:random,
+        round:round,
+        ceil:ceil,
+        floor:floor,
+        cloneDeep:cloneDeep,
     }
     }()
-
-
-
-
-
-
-
-
- 
