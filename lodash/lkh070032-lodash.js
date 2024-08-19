@@ -429,6 +429,38 @@ var lkh070032 = function (){
         }
         return min
        }
+       function forEach(collection ,iteratee=identity){
+        if (array.length === undefined) { 
+            for (let key in array) {
+                if (iteratee(array[key], key, array) === false) {
+                    return array
+                }
+            }
+        } else {
+            for (var i = 0; i < array.length; i++) {
+                if (iteratee(array[i], i, array) === false) {
+                    return array
+                }
+            }
+        }
+        return array
+       }
+       function isArray(value){
+        if(Array.isArray(value)){
+            return true
+        }else{
+            return false
+        }
+       }
+       function isBoolean(value){
+        return typeof value ==="boolean"
+       }
+       function isDate(value) {
+        return Object.prototype.toString.call(value) === '[object Date]';
+       }
+       function isElement(value){
+        return value instanceof HTMLElement
+       }
        return {
         chunk:chunk,
         compact:compact,
@@ -466,5 +498,10 @@ var lkh070032 = function (){
         trim:trim,
         max:max,
         min:min,
+        forEach:forEach,
+        isArray:isArray,
+        isBoolean:isBoolean,
+        isDate:isDate,
+        isElement:isElement,
     }
     }()
