@@ -461,6 +461,29 @@ var lkh070032 = function (){
        function isElement(value){
         return value instanceof HTMLElement
        }
+       function stringifyJSON(obj) {
+        if (Array.isArray(obj)) {
+            let str = ''
+            for (let i = 0; i < obj.length; i++) {
+                str += ',' + stringifyJSON(obj[i])
+            }
+            str = str.slice(1)
+            return '[' + str + ']'
+        } else if (typeof obj === 'object' && obj !== null && !(obj instanceof RegExp)) {
+            let str = ''
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    str += ',"' + key + '"' + ':' + stringifyJSON(obj[key])
+                }
+            }
+            str = str.slice(1)
+            return '{' + str + '}'
+        } else if (typeof obj === 'string') {
+            return '"' + obj + '"'
+        } else {
+            return obj + ''
+        }
+    }
        return {
         chunk:chunk,
         compact:compact,
@@ -503,5 +526,6 @@ var lkh070032 = function (){
         isBoolean:isBoolean,
         isDate:isDate,
         isElement:isElement,
+        stringifyJSON:stringifyJSON,
     }
     }()
