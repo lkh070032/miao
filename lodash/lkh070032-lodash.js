@@ -581,6 +581,20 @@ var lkh070032 = function (){
             return obj + ''
         }
     }
+    function sortedIndex(array, value) {
+      if (array.length === 0) {
+        return 0;
+      }
+      if (value < array[0]) {
+        return 0;
+      }
+      for (var i =0; i<array.length; i++) {
+        if (value>=array[i]) {
+          return i+1;
+        }
+      }
+      return array.length;
+    }
        return {
         chunk:chunk,
         compact:compact,
@@ -625,5 +639,6 @@ var lkh070032 = function (){
         isElement:isElement,
         stringifyJSON:stringifyJSON,
         parserJSON:parserJSON,
+        sortedIndex:sortedIndex,
     }   
     }()
