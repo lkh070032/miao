@@ -510,7 +510,7 @@ var lkh070032 = function (){
                 }else if(JSON[i]==="."){
                     i++
                 }else if(JSON[i]==='"'){
-                    key =parserString
+                    key =parserString()
                     if(JSON[i]===":"){
                         i++
                         value = paserType()
