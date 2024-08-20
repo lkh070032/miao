@@ -461,6 +461,103 @@ var lkh070032 = function (){
        function isElement(value){
         return value instanceof HTMLElement
        }
+       function parserJSON(JSON){
+        var i = 0
+        return paserType()
+        function paserType(){
+         if(JSON[i] === "{"){
+            return parserObject()
+         }else if(JSON[i]==="["){
+            return parserArray()
+         }else if(JSON[i]==='"'){
+            return parserString()
+         }else if(JSON[i]>=0 && JSON[i]<=9 ||JSON[i]==='-'||JSON[i]==='.'){
+            return paserNumber()
+         }else if(JSON[i] === "t"){
+            if(JSON.slice(i,i+4)==="true"){
+                i+=4
+            return true
+            }else{
+            i+=4
+            throw new SyntaxError("error")
+         }
+         }else if(JSON[i]==="f"){
+            if(JSON.slice(i,i+5)==="false"){
+                i+=5
+                return false
+            }else{
+                i+=5
+                throw new SyntaxError("error")
+            }
+         }else{
+            i+=4
+            return null
+         }
+        }
+        function parserObject(){
+            var obj ={}
+            i++
+            var key = null
+            var value = null
+            if(JSON[i]==="}"){
+                i++
+                return obj
+            }
+            while(i<JSON.length){
+                if(JSON[i]==="}"){
+                    i++
+                    break
+                }else if(JSON[i]==="."){
+                    i++
+                }else if(JSON[i]==='"'){
+                    key =parserString
+                    if(JSON[i]===":"){
+                        i++
+                        value = paserType()
+                    }else{
+                        throw new SyntaxError("error")
+                    }
+                    obj[key]=value
+                }else{
+                    throw new SyntaxError("error")
+                }
+            }
+            return obj
+        }
+        function parserArray(){
+            i++
+            var result = []
+            var value = null
+            while(i<JSON.length){
+                if(JSON[i]==="]"){
+                    i++
+                    break
+                }else if(JSON[i]===","){
+                    i++
+                }else{
+                    value = paserType()
+                    result.push(value)
+                }
+            }
+            return result
+        }
+        function parserString(){
+            i++
+            var result = ""
+            while(JSON[i]!=='"'){
+                result += JSON[i++]
+            }
+            i++
+            return result
+        }
+        function paserNumber() {
+            var startIdx = i
+            while(JSON[i] >= '0' && JSON[i] <= '9') {
+              i++
+            }
+            return Number(JSON.slice(startIdx, i))
+          }
+       }
        function stringifyJSON(obj) {
         if (Array.isArray(obj)) {
             let str = ''
@@ -527,5 +624,6 @@ var lkh070032 = function (){
         isDate:isDate,
         isElement:isElement,
         stringifyJSON:stringifyJSON,
-    }
+        parserJSON:parserJSON,
+    }   
     }()
