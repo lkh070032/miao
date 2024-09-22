@@ -595,6 +595,80 @@ var lkh070032 = function (){
       }
       return array.length;
     }
+    function isEmpty(value) {
+        return (value === null || value === undefined || (Array.isArray(value) && value.length === 0));
+    }
+    function countBy(array, fn) {
+      const counts = {}; // 初始化一个空对象来存储计数
+      array.forEach(item => {
+        const key = fn(item); // 通过传入的函数获取键值
+        if (counts[key]) {
+          counts[key]++; // 如果键值已存在，计数加一
+        } else {
+          counts[key] = 1; // 如果键值不存在，初始化计数为1
+        }
+      });
+    
+      return counts; // 返回计数对象
+    }
+    function every(array, predicate = it => it) {
+        if (typeof predicate === 'object' && predicate !== null) {
+            if (Array.isArray(predicate)) {
+                predicate = this.matchesProperty(predicate)
+            } else {
+                predicate = this.matches(predicate)
+            }
+        } else if (typeof predicate === 'number' || typeof predicate === 'string') {
+            predicate = this.property(predicate)
+        } else if (predicate === null) {
+            predicate = it => it
+        }
+        for (let i = 0; i < array.length; i++) {
+            let item = array[i]
+            if (!predicate(item)) return false
+        }
+        return true
+    }
+    function every(array, predicate = it => it) {
+        if (typeof predicate === 'object' && predicate !== null) {
+            if (Array.isArray(predicate)) {
+                predicate = this.matchesProperty(predicate)
+            } else {
+                predicate = this.matches(predicate)
+            }
+        } else if (typeof predicate === 'number' || typeof predicate === 'string') {
+            predicate = this.property(predicate)
+        } else if (predicate === null) {
+            predicate = it => it
+        }
+        for (let i = 0; i < array.length; i++) {
+            let item = array[i]
+            if (!predicate(item)) return false
+        }
+        return true
+    }
+    function matchesProperty(path, value) {
+      return function(object) {
+        return object[path] === value;
+      };
+    }
+    function matches(source) {
+        return function(object) {
+            return Object.keys(source).every(key => object[key] === source[key]);
+        };
+    }
+    function filter(collection, [predicate=_.identity]){
+        return Array.isArray(collection)? collection.filter(predicate) : _.values(collection).filter(predicate);
+    }
+    function flatMap(collection, fn) {
+      return Array.isArray(collection) ? collection.flatMap(fn) : _.values(collection).flatMap(fn);
+    }
+    function identity(value) {
+        return value;
+    }
+    function values(object) {
+        return Object.values(object);
+    }
        return {
         chunk:chunk,
         compact:compact,
@@ -640,5 +714,10 @@ var lkh070032 = function (){
         stringifyJSON:stringifyJSON,
         parserJSON:parserJSON,
         sortedIndex:sortedIndex,
+        isEmpty:isEmpty,
+        countBy:countBy,
+        every:every,
+        filter:filter,
+        flatMap:flatMap,
     }   
     }()
