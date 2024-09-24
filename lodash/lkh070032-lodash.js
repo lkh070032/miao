@@ -717,6 +717,6 @@ var lkh070032 = function (){
         countBy:countBy,
         every:every,
         filter:filter,
-        flatMap:flatMap
+        flatMap:flatMap,
     }   
     }()
