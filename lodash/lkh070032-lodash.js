@@ -45,22 +45,25 @@ var lkh070032 = function (){
         }
         return result;
     }
-    function difference(array, ...values) {
-        var ans = []
-        var set = new Set()
-        for (var i = 0; i < values.length; i++) {
-          var value = values[i]
-          for (var val of value) {
-            set.add(val)
-          }
-        }
+    function difference(array, values) {
+        var common = [];
+        var difference = [];
+    
         for (var i = 0; i < array.length; i++) {
-          if (!set.has(array[i])) {
-            ans.push(array[i])
-          }
+            var found = false;
+            for (var j = 0; j < values.length; j++) {
+                if (array[i] === values[j]) {
+                    common.push(array[i]);
+                    found = true;
+                    break; // 找到匹配项后，跳出内层循环
+                }
+            }
+            if (!found) {
+                difference.push(array[i]);
+            }
         }
-        return ans
-      }
+        return difference;
+    }
         function fill(array, value, start, end) {
         for (var i = start || 0; i < (end || array.length); i++) {
             array[i] = value;
@@ -668,6 +671,52 @@ var lkh070032 = function (){
         }
         return result
     }
+    
+    function differenceBy(array, values, iteratee) {
+        if (typeof iteratee === 'string') {
+            return differenceByString(array, values, iteratee);
+        } else {
+            var seen = {};
+            values.forEach(function(value) {
+                var key = iteratee(value);
+                seen[key] = true;
+            });
+            var difference = array.filter(function(item) {
+                var key = iteratee(item);
+                return !seen.hasOwnProperty(key);
+            });
+            return difference;
+        }
+    }
+    function differenceByString(array, values, key) {
+        var seen = new Set();
+        values.forEach(function(value) {
+            seen.add(value[key]);
+        });
+    
+        var difference = array.filter(function(item) {
+            return !seen.has(item[key]);
+        });
+    
+        return difference;
+    }
+    function differenceWith(array, values, comparator) {
+        let result = []
+        for (let i = 0; i < array.length; i++) {
+            let item = array[i]
+            let a = true
+            for (let j = 0; j < values.length; j++) {
+                if (comparator(item, values[j])) {
+                    a = false
+                    break
+                }
+            }
+            if (a) {
+                result.push(item)
+            }
+        }
+        return result
+    }
        return {
         chunk:chunk,
         compact:compact,
@@ -718,5 +767,7 @@ var lkh070032 = function (){
         every:every,
         filter:filter,
         flatMap:flatMap,
+        differenceBy:differenceBy,
+        differenceWith:differenceWith,
     }   
     }()
